@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { FiMapPin, FiPhone, FiMail, FiClock } from "react-icons/fi";
+import { useRef, useState } from "react";
 
 // 🔥 Animation
 const fadeUp = {
@@ -12,12 +13,27 @@ const fadeUp = {
 };
 
 export default function ContactSection() {
-  return (
-    <section id="contact" className="bg-[#1a1a1a] mt-5 text-white py-20">
+  const formRef = useRef();
 
+  // ✅ POPUP STATE
+  const [showPopup, setShowPopup] = useState(false);
+
+  // 🔥 FORM SUBMIT (NO EMAILJS)
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // 👉 simulate sending
+    setTimeout(() => {
+      setShowPopup(true); // popup show
+      formRef.current.reset(); // clear form
+    }, 500);
+  };
+
+  return (
+    <section className="bg-[#1a1a1a] mt-5 text-white py-20 relative">
       <div className="max-w-[1400px] mx-auto px-6 md:px-12">
 
-        {/* 🔥 HEADING */}
+        {/* HEADING */}
         <motion.div
           variants={fadeUp}
           initial="hidden"
@@ -29,12 +45,10 @@ export default function ContactSection() {
           </p>
 
           <h2 className="text-2xl md:text-4xl font-semibold">
-            Connect With{" "}
-            <span className="text-yellow-400">Pixla Gold</span>
+            Connect With <span className="text-yellow-400">Pixla Gold</span>
           </h2>
         </motion.div>
 
-        {/* 🔥 CONTENT */}
         <div className="grid md:grid-cols-3 gap-10 items-start">
 
           {/* LEFT SIDE */}
@@ -44,13 +58,10 @@ export default function ContactSection() {
             whileInView="show"
             className="space-y-10"
           >
-
-            {/* OFFICE DETAILS */}
             <div>
               <h3 className="font-semibold mb-6">Office Details</h3>
 
               <div className="space-y-4 text-gray-300 text-sm">
-
                 <div className="flex items-center gap-3">
                   <FiMapPin className="text-yellow-400" />
                   Pixla Gold Corporation Pvt Ltd, India
@@ -65,16 +76,13 @@ export default function ContactSection() {
                   <FiMail className="text-yellow-400" />
                   info.pixlagold.com
                 </div>
-
               </div>
             </div>
 
-            {/* OFFICE HOURS */}
             <div>
               <h3 className="font-semibold mb-6">Office Hours</h3>
 
               <div className="space-y-3 text-gray-300 text-sm">
-
                 <div className="flex items-center gap-3">
                   <FiClock className="text-yellow-400" />
                   Monday - Friday: 9:00 AM - 6:00 PM
@@ -89,104 +97,73 @@ export default function ContactSection() {
                   <FiClock className="text-yellow-400" />
                   Sunday: Closed
                 </div>
-
               </div>
             </div>
-
           </motion.div>
 
-          {/* RIGHT SIDE FORM */}
+          {/* RIGHT FORM */}
           <motion.div
             variants={fadeUp}
             initial="hidden"
             whileInView="show"
             className="md:col-span-2 bg-black rounded-xl p-8 border border-gray-800"
           >
+            <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
 
-            <form className="space-y-6">
+              <input name="from_name" required placeholder="Full Name"
+                className="w-full p-3 bg-transparent border border-gray-700 rounded-md" />
 
-              {/* FULL NAME */}
-              <div>
-                <label className="text-sm text-gray-400">
-                  Full Name *
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter Your Full Name"
-                  className="w-full mt-2 p-3 bg-transparent border border-gray-700 rounded-md focus:outline-none focus:border-yellow-400"
-                />
-              </div>
-
-              {/* EMAIL + PHONE */}
               <div className="grid md:grid-cols-2 gap-6">
+                <input name="from_email" required placeholder="Email"
+                  className="w-full p-3 bg-transparent border border-gray-700 rounded-md" />
 
-                <div>
-                  <label className="text-sm text-gray-400">
-                    Email *
-                  </label>
-                  <input
-                    type="email"
-                    placeholder="your@email.com"
-                    className="w-full mt-2 p-3 bg-transparent border border-gray-700 rounded-md focus:outline-none focus:border-yellow-400"
-                  />
-                </div>
-
-                <div>
-                  <label className="text-sm text-gray-400">
-                    Phone *
-                  </label>
-                  <input
-                    type="text"
-                    placeholder="+91 00000 00000"
-                    className="w-full mt-2 p-3 bg-transparent border border-gray-700 rounded-md focus:outline-none focus:border-yellow-400"
-                  />
-                </div>
-
+                <input name="phone" required placeholder="Phone"
+                  className="w-full p-3 bg-transparent border border-gray-700 rounded-md" />
               </div>
 
-              {/* ENQUIRY */}
-              <div>
-                <label className="text-sm text-gray-400">
-                  Enquiry Type *
-                </label>
-                <select className="w-full mt-2 p-3 bg-transparent border border-gray-700 rounded-md focus:outline-none focus:border-yellow-400">
-                  <option>Select Your Enquiry Type</option>
-                  <option>General</option>
-                  <option>Franchise</option>
-                  <option>Investment</option>
-                </select>
-              </div>
+              <select name="enquiry" required
+                className="w-full p-3 bg-transparent border border-gray-700 rounded-md">
+                <option value="">Select Enquiry</option>
+                <option>General</option>
+                <option>Franchise</option>
+                <option>Investment</option>
+              </select>
 
-              {/* MESSAGE */}
-              <div>
-                <label className="text-sm text-gray-400">
-                  Message *
-                </label>
-                <textarea
-                  rows="4"
-                  placeholder="Tell Us About Your Enquiry..."
-                  className="w-full mt-2 p-3 bg-transparent border border-gray-700 rounded-md focus:outline-none focus:border-yellow-400"
-                ></textarea>
-              </div>
+              <textarea name="message" rows="4" required placeholder="Message"
+                className="w-full p-3 bg-transparent border border-gray-700 rounded-md" />
 
-              {/* BUTTON */}
-              <motion.button
-                whileHover={{
-                  scale: 1.03,
-                  boxShadow: "0px 0px 20px rgba(234,179,8,0.6)",
-                }}
-                className="w-full bg-yellow-400 text-black py-2 rounded-md font-semibold mt-4"
-              >
+              <button className="w-full bg-yellow-400 text-black py-2 rounded-md font-semibold">
                 Submit Enquiry
-              </motion.button>
-
+              </button>
             </form>
-
           </motion.div>
-
         </div>
-
       </div>
+
+      {/* 🔥 CENTER POPUP */}
+      {showPopup && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black/70 z-50">
+          <div className="bg-white text-black p-8 rounded-xl text-center w-[90%] max-w-md">
+
+            <h2 className="text-xl font-semibold mb-4">
+              ✅ Message Sent!
+            </h2>
+
+            <p className="text-gray-600 mb-6">
+              Thanks for contacting us. Our team will reach you soon.
+            </p>
+
+            <button
+              onClick={() => setShowPopup(false)}
+              className="bg-yellow-400 px-6 py-2 rounded-md font-semibold"
+            >
+              Close
+            </button>
+
+          </div>
+        </div>
+      )}
+
     </section>
   );
 }
