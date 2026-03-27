@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import logo from "./../assets/Home/Footer Logo.png";
+import logo from "./../assets/Home/Footer logo.png";
 import { FaLinkedin, FaInstagram, FaFacebookF, FaTwitter, FaYoutube } from "react-icons/fa";
 
 const container = {
