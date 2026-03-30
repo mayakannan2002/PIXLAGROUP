@@ -6,16 +6,16 @@ import {
   BarChart3, PieChart, Zap, Globe2, Rocket, 
   Leaf, Briefcase 
 } from "lucide-react";
-import I1 from "./../../assets/Home/I1.png"
-import I2 from "./../../assets/Home/I2.jpg"
+import I1 from "./../../assets/Home/I1.png";
+import I2 from "./../../assets/Home/I2.jpg";
 
 // Assets
- 
 import logo from "./../../assets/PIXLA LOGO.jpg";
-import Pitchdesk from "./../../assets/Home/Pitchdesk.pdf"; // Added the PDF import
+import Pitchdesk from "./../../assets/Home/Pitchdesk.pdf";
 
-const heroImg = I1 
-const growthImg =I2
+const heroImg = I1;
+const growthImg = I2;
+
 const InvestorPage = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -36,110 +36,83 @@ const InvestorPage = () => {
     <div className="bg-black text-white font-sans overflow-x-hidden">
       {/* --- Navbar --- */}
       <nav className="fixed top-0 w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10">
-  <div className="max-w-[1400px] mx-auto px-6 py-4 md:px-12 flex justify-between items-center">
-    
-    <Link to="/" className="flex items-center gap-3">
-      <motion.img 
-        whileHover={{ rotate: 360 }} 
-        transition={{ duration: 0.5 }}
-        src={logo}
-        className="h-10 w-10 object-cover rounded-full"
-        alt="Pixla Gold"
-      />
-      <motion.span 
-        initial={{ opacity: 0, x: -10 }}
-        animate={{ opacity: 1, x: 0 }}
-        className="text-yellow-400 font-semibold tracking-widest text-lg"
-      >
-        PIXLA GOLD CORP
-      </motion.span>
-    </Link>
+        <div className="max-w-[1400px] mx-auto px-6 py-4 md:px-12 flex justify-between items-center">
+          <Link to="/" className="flex items-center gap-3">
+            <motion.img 
+              whileHover={{ rotate: 360 }} 
+              transition={{ duration: 0.5 }}
+              src={logo}
+              className="h-10 w-10 object-cover rounded-full"
+              alt="Pixla Gold"
+            />
+            <motion.span 
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="text-yellow-400 font-semibold tracking-widest text-lg"
+            >
+              PIXLA GOLD CORP
+            </motion.span>
+          </Link>
 
-    {/* ✅ FIXED: removed wrong closing tag */}
-    <div className="hidden md:flex gap-8 items-center text-sm font-medium">
-      <button onClick={() => scrollToSection('highlights')} className="hover:text-yellow-400 transition">
-        Investment Highlight
-      </button>
-      <button onClick={() => scrollToSection('financials')} className="hover:text-yellow-400 transition">
-        Financial Highlight
-      </button>
-      <button onClick={() => scrollToSection('growth')} className="hover:text-yellow-400 transition">
-        Growth Plan
-      </button>
+          <div className="hidden lg:flex items-center gap-8 font-bold text-[11px] uppercase tracking-widest">
+            <button onClick={() => scrollToSection('highlights')} className="hover:text-yellow-400 transition">
+              INVESTMENT HIGHLIGHTS
+            </button>
+            <button onClick={() => scrollToSection('financials')} className="hover:text-yellow-400 transition">
+              FINANCIAL HIGHLIGHTS
+            </button>
+            <button onClick={() => scrollToSection('growth')} className="hover:text-yellow-400 transition">
+              GROWTH PLAN
+            </button>
 
-      <Link 
-        to="/contact" 
-        className="bg-yellow-500 text-black px-6 py-2 rounded-full font-bold flex items-center gap-2 hover:bg-yellow-400 transition"
-      >
-        Apply Investor <span className="text-extrabold text-[20px]">→</span>
-      </Link>
-    </div>
+            <Link to="/contact" className="group flex items-center gap-2 bg-amber-400 px-4 py-1.5 rounded-full text-[11px] font-bold tracking-widest text-black hover:bg-black hover:text-white transition-all duration-300">
+              APPLY INVESTOR
+              <span className="text-lg leading-none group-hover:translate-x-1 transition-transform">→</span>
+            </Link>
+          </div>
 
-    {/* ✅ FIXED: moved inside navbar */}
-    <button 
-      className="md:hidden text-yellow-500" 
-      onClick={() => setIsOpen(!isOpen)}
-    >
-      {isOpen ? <X size={28} /> : <Menu size={28} />}
-    </button>
+          <button className="md:hidden text-yellow-500" onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
 
-  </div>
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div 
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="md:hidden bg-black border-b border-white/10 px-6 py-6 flex flex-col gap-5"
+            >
+              <button onClick={() => scrollToSection('highlights')} className="text-left py-2 border-b border-white/5 text-gray-200 text-[11px] font-bold uppercase tracking-widest">
+                Investment Highlights
+              </button>
+              <button onClick={() => scrollToSection('financials')} className="text-left py-2 border-b border-white/5 text-gray-200 text-[11px] font-bold uppercase tracking-widest">
+                Financial Highlights
+              </button>
+              <button onClick={() => scrollToSection('growth')} className="text-left py-2 border-b border-white/5 text-gray-200 text-[11px] font-bold uppercase tracking-widest">
+                Growth Plan
+              </button>
+              <Link to="/contact" onClick={() => setIsOpen(false)} className="bg-yellow-500 text-black px-6 py-3 rounded-xl font-bold text-center mt-2 uppercase text-[11px] tracking-widest">
+                Apply Investor →
+              </Link>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </nav>
 
- <AnimatePresence>
-  {isOpen && (
-    <motion.div 
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      className="md:hidden bg-black border-b border-white/10 px-6 py-6 flex flex-col gap-5"
-    >
-      {/* ✅ SAME AS DESKTOP */}
-      <button 
-        onClick={() => scrollToSection('highlights')} 
-        className="text-left py-2 border-b border-white/5 text-gray-200"
-      >
-        Investment Highlight
-      </button>
-
-      <button 
-        onClick={() => scrollToSection('financials')} 
-        className="text-left py-2 border-b border-white/5 text-gray-200"
-      >
-        Financial Highlight
-      </button>
-
-      <button 
-        onClick={() => scrollToSection('growth')} 
-        className="text-left py-2 border-b border-white/5 text-gray-200"
-      >
-        Growth Plan
-      </button>
-
-      <Link 
-        to="/contact" 
-        onClick={() => setIsOpen(false)} 
-        className="bg-yellow-500 text-black px-6 py-3 rounded-xl font-bold text-center mt-2"
-      >
-        Apply Investor →
-      </Link>
-    </motion.div>
-  )}
-</AnimatePresence>
-</nav>
-      {/* --- Hero Section --- */}
-      <section className="pt-40 pb-20 px-6 md:px-12 max-w-[1400px] mx-auto grid md:grid-cols-2 gap-16 items-center">
+      {/* --- Hero Section (Reduced Padding) --- */}
+      <section className="pt-32 pb-12 px-6 md:px-12 max-w-[1400px] mx-auto grid md:grid-cols-2 gap-12 items-center">
         <motion.div initial="hidden" animate="visible" variants={fadeInUp}>
-          <p className="text-yellow-500 tracking-[0.3em] uppercase text-md font-bold mb-6">INVESTORS</p>
-          <h1 className="text-2xl md:text-4xl font-bold mb-8 leading-[1.1]">
+          <p className="text-yellow-500 tracking-[0.3em] uppercase text-md font-bold mb-4">INVESTORS</p>
+          <h1 className="text-2xl md:text-4xl font-bold mb-6 leading-[1.1]">
             Invest in India's <span className="text-yellow-400">Gold Future</span>
           </h1>
-          <p className="text-gray-400 text-lg leading-relaxed mb-10 max-w-xl">
+          <p className="text-gray-400 text-lg leading-relaxed mb-8 max-w-xl">
             Invites investors to explore our growth story, financial performance, and strategic plans. 
-            We provide transparent insights and opportunities for collaboration, ensuring confidence 
-            and clarity for current and potential investors.
+            We provide transparent insights and opportunities for collaboration.
           </p>
           
-          {/* Download Button with Framer Motion and PDF Link */}
           <motion.a
             href={Pitchdesk}
             download="Pixla_Gold_Pitch_Deck.pdf"
@@ -152,20 +125,20 @@ const InvestorPage = () => {
         </motion.div>
 
         <motion.div initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.8 }}>
-          <img src={heroImg} alt="Pixla corporate team" className="rounded-sm w-full h-[500px] object-cover border border-white/10" />
+          <img src={heroImg} alt="Pixla corporate team" className="rounded-sm w-full h-[450px] object-cover border border-white/10" />
         </motion.div>
       </section>
 
-      {/* --- Investment Highlights Section --- */}
-      <section id="highlights" className="py-24 px-6 md:px-12 max-w-[1400px] mx-auto border-t border-white/5">
+      {/* --- Investment Highlights Section (Reduced py-24 to py-16) --- */}
+      <section id="highlights" className="py-16 px-6 md:px-12 max-w-[1400px] mx-auto border-t border-white/5">
         <motion.h2 
           initial="hidden" whileInView="visible" variants={fadeInUp}
-          className="text-center text-3xl font-bold mb-20 uppercase tracking-widest"
+          className="text-center text-3xl font-bold mb-12 uppercase tracking-widest"
         >
           Investment Highlights
         </motion.h2>
         
-        <div className="grid md:grid-cols-3 gap-8 mb-12 items-start">
+        <div className="grid md:grid-cols-3 gap-8 mb-8 items-start">
           <HighlightCard 
             icon={<Briefcase />} 
             title="Market Leadership" 
@@ -181,12 +154,12 @@ const InvestorPage = () => {
             whileInView={{ opacity: 1, x: 0 }}
             className="p-8 text-gray-400 text-sm leading-relaxed"
           >
-            Pixla Gold Corporation presents a comprehensive overview for investors, showcasing our position as India’s first social gold network and our integrated gold ecosystem.
+            Pixla Gold Corporation presents a comprehensive overview for investors, showcasing our position as India’s first social gold network.
           </motion.div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 items-end">
-          <div className="p-8 flex items-center justify-center h-full">
+        <div className="grid md:grid-cols-3 gap-8 items-center">
+          <div className="p-8">
             <h3 className="text-yellow-500 font-bold text-2xl italic text-center md:text-left leading-tight">
               “Invest in Gold, Invest in India’s Future.”
             </h3>
@@ -204,40 +177,40 @@ const InvestorPage = () => {
         </div>
       </section>
 
-      {/* --- Financial Highlights --- */}
-      <section id="financials" className="py-24 px-6 md:px-12 max-w-[1400px] mx-auto">
-        <h2 className="text-center text-3xl font-bold mb-20 uppercase tracking-widest">Financial Highlights</h2>
+      {/* --- Financial Highlights (Reduced py-24 to py-16) --- */}
+      <section id="financials" className="py-16 px-6 md:px-12 max-w-[1400px] mx-auto">
+        <h2 className="text-center text-3xl font-bold mb-12 uppercase tracking-widest">Financial Highlights</h2>
         
-        <div className="grid md:grid-cols-12 gap-8 items-start">
+        <div className="grid md:grid-cols-12 gap-8 items-start mb-8">
           <div className="md:col-span-5 pr-8">
-            <p className="text-gray-400 leading-relaxed mb-12">
-              Pixla Gold Corporation provides key financial metrics and performance insights to help investors evaluate the company's growth, stability, and long-term potential.
+            <p className="text-gray-400 leading-relaxed mb-8">
+              Pixla Gold Corporation provides key financial metrics to help investors evaluate the company's growth and stability.
             </p>
             <h3 className="text-yellow-500 font-bold text-2xl italic leading-tight">
-              "Strong Numbers, Transparent Growth, Trusted Investments."
+              "Strong Numbers, Transparent Growth."
             </h3>
           </div>
 
           <div className="md:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
-            <HighlightCard icon={<Rocket />} title="Revenue Growth" desc="Consistent increase in income across bullion, digital gold, jewellery, and financial services." />
-            <HighlightCard icon={<PieChart />} title="Profitability" desc="Healthy margins from trading, franchise operations, and gold-backed financial products." />
+            <HighlightCard icon={<Rocket />} title="Revenue Growth" desc="Consistent increase in income across bullion and digital gold." />
+            <HighlightCard icon={<PieChart />} title="Profitability" desc="Healthy margins from trading and franchise operations." />
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <HighlightCard icon={<Zap />} title="Investment Returns" desc="Attractive opportunities for institutional and retail investors." />
           <HighlightCard icon={<BarChart3 />} title="Operational Efficiency" desc="Optimized supply chain ensures cost effectiveness." />
-          <HighlightCard icon={<Globe2 />} title="Financial Transparency" desc="Annual results, audited statements, and performance reports available." />
+          <HighlightCard icon={<Globe2 />} title="Financial Transparency" desc="Annual results and performance reports available." />
         </div>
       </section>
 
-      {/* --- Growth Plan Section --- */}
-      <section id="growth" className="py-24 px-6 md:px-12 max-w-[1400px] mx-auto bg-[#050505] rounded-3xl border border-white/5 my-20">
-        <h2 className="text-2xl font-bold mb-16 tracking-widest">Growth Plan</h2>
-        <div className="grid md:grid-cols-2 gap-20">
-          <img src={growthImg} alt="Growth chart" className="rounded-lg w-full h-[400px] object-cover  hover:grayscale-0 transition duration-700" />
+      {/* --- Growth Plan Section (Reduced margins and padding) --- */}
+      <section id="growth" className="py-16 px-6 md:px-12 max-w-[1400px] mx-auto bg-[#050505] rounded-3xl border border-white/5 my-10">
+        <h2 className="text-2xl font-bold mb-12 tracking-widest text-center md:text-left">Growth Plan</h2>
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          <img src={growthImg} alt="Growth chart" className="rounded-lg w-full h-[350px] object-cover hover:grayscale-0 transition duration-700" />
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-y-10 gap-x-8">
             <GrowthItem icon={<Rocket className="text-yellow-500" />} title="Strategic Partnerships" desc="Collaborate with banks and fintechs." />
             <GrowthItem icon={<Leaf className="text-green-500" />} title="Sustainability & ESG" desc="Tree plantation and rural upliftment." />
             <GrowthItem icon={<TrendingUp className="text-blue-500" />} title="Market Penetration" desc="Expand B2B and institutional services." />
@@ -247,7 +220,7 @@ const InvestorPage = () => {
           </div>
         </div>
         
-        <div className="flex justify-center mt-20">
+        <div className="flex justify-center mt-12">
           <Link to="/contact" className="bg-yellow-500 text-black px-12 py-2 rounded-full font-bold flex items-center gap-3 hover:bg-yellow-400 transition">
             Apply Investors <span className="text-lg">→</span>
           </Link>
@@ -271,7 +244,7 @@ const HighlightCard = ({ icon, title, desc, span = "" }) => (
 
 const GrowthItem = ({ icon, title, desc }) => (
   <div>
-    <div className="flex items-center gap-3 mb-3">
+    <div className="flex items-center gap-3 mb-2">
       {icon}
       <h4 className="font-bold text-lg">{title}</h4>
     </div>

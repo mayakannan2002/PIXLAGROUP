@@ -11,6 +11,8 @@ import AboutPage from './components/About/Aboutpage';
 import Productpage from './components/Products/Productpage';
 import ESGFoundation from './components/Esg/Esgpage';
 import Contact from './components/Contactpage';
+import TermsAndConditions from './components/Terms & Privacy/Terms&conditions';
+import PrivacyPolicy from './components/Terms & Privacy/Privacypolicy';
 
 
 const App = () => {
@@ -31,6 +33,8 @@ const App = () => {
           <Route path="/product" element={<Productpage/>} />
           <Route path="/esg" element={<ESGFoundation />} />
           <Route path="/contact" element={<Contact />} />
+           <Route path="/terms" element={<TermsAndConditions />} />
+            <Route path="/privacypolicy" element={<PrivacyPolicy/>} />
         </Routes>
       </main>
       <Footer />

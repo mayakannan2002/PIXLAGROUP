@@ -1,6 +1,6 @@
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link, useLocation } from "react-router-dom";
 import logo from "./../assets/PIXLA LOGO.jpg";
 
 const menuItems = [
@@ -9,36 +9,46 @@ const menuItems = [
   { title: "Products", path: "/product" },
   { title: "Franchise", path: "/franchise" },
   { title: "Investors", path: "/investor" },
-  { title: "Esg", path: "/esg" },
-  { title: "CAREERS", id: "careers" }, // Changed to id
-  { title: "MEDIA & NEWS", id: "news" },       // Changed to id
+  { title: "ESG", path: "/esg" },
+  { title: "CAREERS", id: "careers" }, 
+  { title: "MEDIA & NEWS", id: "news" },
 ];
 
 export default function Navbar() {
   const [mobile, setMobile] = useState(false);
   const location = useLocation();
 
-  // 🔥 Smooth Scroll Function
-  const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    if (element) {
-      const offset = 80; // Account for fixed navbar height
-      const bodyRect = document.body.getBoundingClientRect().top;
-      const elementRect = element.getBoundingClientRect().top;
-      const elementPosition = elementRect - bodyRect;
-      const offsetPosition = elementPosition - offset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
-      setMobile(false); // Close mobile menu after clicking
+  // ✅ PREVENT BACKGROUND SCROLL WHEN MENU IS OPEN
+  useEffect(() => {
+    if (mobile) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
     }
+  }, [mobile]);
+
+  const scrollToSection = (id) => {
+    setMobile(false);
+    setTimeout(() => {
+      const element = document.getElementById(id);
+      if (element) {
+        const offset = 80;
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementRect = element.getBoundingClientRect().top;
+        const elementPosition = elementRect - bodyRect;
+        const offsetPosition = elementPosition - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: "smooth",
+        });
+      }
+    }, 150);
   };
 
   return (
-    <nav className="fixed top-[-1px] left-0 w-full z-50 bg-black/50 backdrop-blur-md border-b border-gray-800 text-white font-sans">
-      <div className="max-w-[1400px] px-6 md:px-12 py-5 mx-auto flex items-center justify-between">
+    <nav className="fixed top-0 left-0 w-full z-[100] bg-black/80 backdrop-blur-md border-b border-white/10 text-white font-sans">
+      <div className="max-w-[1400px] px-6 md:px-12 py-4 mx-auto flex items-center justify-between">
         
         {/* LOGO */}
         <Link to="/" className="flex items-center gap-3">
@@ -62,20 +72,18 @@ export default function Navbar() {
         <div className="hidden lg:flex items-center gap-8 font-bold text-[11px] uppercase tracking-widest">
           {menuItems.map((menu, index) => (
             menu.id ? (
-              // Scroll Link
               <button
                 key={index}
                 onClick={() => scrollToSection(menu.id)}
-                className="text-gray-300 hover:text-yellow-400 transition-colors duration-300"
+                className="text-gray-300 hover:text-yellow-400 transition-colors cursor-pointer"
               >
                 {menu.title}
               </button>
             ) : (
-              // Route Link
               <Link
                 key={index}
                 to={menu.path}
-                className={`relative transition-colors duration-300 hover:text-yellow-400 ${
+                className={`relative transition-colors hover:text-yellow-400 ${
                   location.pathname === menu.path ? "text-yellow-400" : "text-gray-300"
                 }`}
               >
@@ -83,7 +91,7 @@ export default function Navbar() {
                 {location.pathname === menu.path && (
                   <motion.span 
                     layoutId="underline" 
-                    className="absolute left-0 -bottom-1 w-full h-[2px] bg-yellow-400" 
+                    className="absolute left-0 -bottom-1 w-full h-[1px] bg-yellow-400" 
                   />
                 )}
               </Link>
@@ -91,79 +99,78 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* RIGHT SIDE */}
+        {/* RIGHT SIDE BUTTON */}
         <div className="flex items-center gap-5">
-          <motion.button
-            onClick={() => scrollToSection("contact")} // Scrolled to Contact
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="hidden lg:block bg-yellow-400 text-black text-[12px] font-bold rounded-md px-6 py-2 uppercase tracking-widest hover:bg-yellow-300 transition shadow-[0_0_15px_rgba(250,204,21,0.2)]"
-          >
-            Let's Talk
-          </motion.button>
+          <Link to="/contact" className="hidden lg:block">
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-yellow-400 text-black text-[11px] font-bold rounded-full px-6 py-2 uppercase tracking-widest hover:bg-black hover:text-white border border-yellow-400 transition-all duration-300"
+            >
+              Let's Talk →
+            </motion.button>
+          </Link>
 
           {/* MOBILE TOGGLE */}
-          <div onClick={() => setMobile(!mobile)} className="lg:hidden cursor-pointer">
-             {/* ... burger icon code ... */}
-             <div className="w-6 h-5 flex flex-col justify-between">
-                <span className={`w-full h-0.5 bg-white transition-all ${mobile ? "rotate-45 translate-y-2" : ""}`}></span>
-                <span className={`w-full h-0.5 bg-white transition-all ${mobile ? "opacity-0" : ""}`}></span>
-                <span className={`w-full h-0.5 bg-white transition-all ${mobile ? "-rotate-45 -translate-y-2" : ""}`}></span>
-             </div>
-          </div>
+          <button 
+            onClick={() => setMobile(!mobile)} 
+            className="lg:hidden text-yellow-500 focus:outline-none relative z-[110]"
+          >
+            <div className="w-6 h-5 flex flex-col justify-between">
+              <span className={`w-full h-0.5 bg-white transition-all duration-300 ${mobile ? "rotate-45 translate-y-2" : ""}`}></span>
+              <span className={`w-full h-0.5 bg-white transition-all duration-300 ${mobile ? "opacity-0" : ""}`}></span>
+              <span className={`w-full h-0.5 bg-white transition-all duration-300 ${mobile ? "-rotate-45 -translate-y-2" : ""}`}></span>
+            </div>
+          </button>
         </div>
       </div>
 
-      {/* MOBILE MENU */}
-     {/* MOBILE MENU */}
-<AnimatePresence>
-  {mobile && (
-    <motion.div
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -20 }}
-      transition={{ duration: 0.3 }}
-      className="fixed top-[70px] left-0 w-full bg-black border-t border-gray-800 z-40 lg:hidden shadow-2xl"
-    >
-      <div className="flex flex-col p-8 gap-6 text-center bg-[#0a0a0a]">
-        {menuItems.map((menu, index) => (
-          menu.id ? (
-            <button
-              key={index}
-              onClick={() => {
-                scrollToSection(menu.id);
-                setMobile(false);
-              }}
-              className="text-gray-300 hover:text-yellow-400 font-bold text-sm uppercase tracking-widest"
-            >
-              {menu.title}
-            </button>
-          ) : (
-            <Link
-              key={index}
-              to={menu.path}
-              onClick={() => setMobile(false)}
-              className="text-gray-300 hover:text-yellow-400 font-bold text-sm uppercase tracking-widest"
-            >
-              {menu.title}
-            </Link>
-          )
-        ))}
-        
-        {/* Mobile Let's Talk Button */}
-        <button 
-          onClick={() => {
-            scrollToSection("contact");
-            setMobile(false);
-          }}
-          className="bg-yellow-400 text-black py-4 rounded-md font-bold uppercase text-sm tracking-widest mt-4 shadow-lg active:scale-95 transition-transform"
-        >
-          Let's Talk
-        </button>
-      </div>
-    </motion.div>
-  )}
-</AnimatePresence>
+      {/* MOBILE MENU OVERLAY */}
+      <AnimatePresence>
+        {mobile && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "calc(100vh - 72px)" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="fixed top-[72px] left-0 w-full bg-black border-t border-white/5 lg:hidden z-[90] overflow-y-auto"
+          >
+            {/* Added pb-20 to ensure the last button isn't cut off */}
+            <div className="flex flex-col p-10 gap-8 items-start pb-20">
+              {menuItems.map((menu, index) => (
+                menu.id ? (
+                  <button
+                    key={index}
+                    onClick={() => scrollToSection(menu.id)}
+                    className="text-gray-200 font-bold text-[11px] uppercase tracking-widest text-left hover:text-yellow-400 w-full"
+                  >
+                    {menu.title}
+                  </button>
+                ) : (
+                  <Link
+                    key={index}
+                    to={menu.path}
+                    onClick={() => setMobile(false)}
+                    className={`font-bold text-[11px] uppercase tracking-widest text-left w-full ${
+                      location.pathname === menu.path ? "text-yellow-400" : "text-gray-200"
+                    }`}
+                  >
+                    {menu.title}
+                  </Link>
+                )
+              ))}
+              
+              <Link 
+                to="/contact" 
+                onClick={() => setMobile(false)}
+                className="w-full bg-yellow-400 text-black py-4 rounded-full font-bold uppercase text-[11px] tracking-widest text-center mt-4 active:scale-95 transition-all shrink-0"
+              >
+                Let's Talk →
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

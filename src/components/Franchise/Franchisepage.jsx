@@ -92,13 +92,16 @@ const FranchisePage = () => {
             </motion.span>
           </Link>
 
-          <div className="hidden md:flex gap-8 items-center text-sm font-medium">
-            <button onClick={() => scrollToSection('opportunities')} className="hover:text-yellow-400 transition">Franchise Opportunities</button>
-            <button onClick={() => scrollToSection('benefits')} className="hover:text-yellow-400 transition">Benefits of Franchise</button>
+          <div  className="hidden lg:flex items-center gap-8 font-bold text-[11px] uppercase tracking-widest">
+            <button onClick={() => scrollToSection('opportunities')} className="hover:text-yellow-400 transition">FRANCHISE OPPURTINITIES</button>
+            <button onClick={() => scrollToSection('benefits')} className="hover:text-yellow-400 transition">BENEFITS OF FRANCHISE</button>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link to="/contact" className="bg-yellow-500 text-black px-6 py-2 rounded-full font-bold flex items-center gap-2 hover:bg-yellow-400 transition">
-                Apply Franchise <span className="text-extrabold text-[20px]">→</span>
-              </Link>
+                  <Link to="/contact">
+               <Link to="/contact" className="group flex items-center gap-2 bg-amber-400 px-4 py-1.5 rounded-full text-[11px] font-bold tracking-widest text-black hover:bg-black hover:text-white transition-all duration-300">
+               APPLY FOR FRANCHISE
+               <span className="text-lg leading-none group-hover:translate-x-1 transition-transform">→</span>
+             </Link>
+             </Link>
             </motion.div>
           </div>
 
@@ -108,21 +111,37 @@ const FranchisePage = () => {
         </div>
 
         <AnimatePresence>
-          {isOpen && (
-            <motion.div 
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              className="md:hidden bg-black border-b border-white/10 px-6 py-6 flex flex-col gap-5"
-            >
-              <button onClick={() => scrollToSection('opportunities')} className="text-left py-2 border-b border-white/5 text-gray-200">Franchise Opportunities</button>
-              <button onClick={() => scrollToSection('benefits')} className="text-left py-2 border-b border-white/5 text-gray-200">Benefits of Franchise</button>
-              <Link to="/contact" onClick={() => setIsOpen(false)} className="bg-yellow-500 text-black px-6 py-3 rounded-xl font-bold text-center mt-2">
-                Apply Franchise
-              </Link>
-            </motion.div>
-          )}
-        </AnimatePresence>
+  {isOpen && (
+    <motion.div 
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -20 }}
+      className="md:hidden bg-black border-b border-white/10 px-6 py-6 flex flex-col gap-5"
+    >
+      <button 
+        onClick={() => scrollToSection('opportunities')} 
+        className="text-left py-2 border-b border-white/5 text-gray-200 font-bold text-[11px] uppercase tracking-widest"
+      >
+        FRANCHISE OPPORTUNITIES
+      </button>
+      
+      <button 
+        onClick={() => scrollToSection('benefits')} 
+        className="text-left py-2 border-b border-white/5 text-gray-200 font-bold text-[11px] uppercase tracking-widest"
+      >
+        BENEFITS OF FRANCHISE
+      </button>
+
+      <Link 
+        to="/contact" 
+        onClick={() => setIsOpen(false)} 
+        className="bg-yellow-500 text-black px-6 py-3 rounded-xl font-bold text-center mt-2 uppercase text-[11px] tracking-widest"
+      >
+        APPLY FRANCHISE →
+      </Link>
+    </motion.div>
+  )}
+</AnimatePresence>
       </nav>
 
       {/* --- Hero Section --- */}

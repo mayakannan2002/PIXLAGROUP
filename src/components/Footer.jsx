@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import logo from "./../assets/Home/Footer logo.png";
 import { FaLinkedin, FaInstagram, FaFacebookF, FaTwitter, FaYoutube } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const container = {
   hidden: {},
@@ -76,9 +77,10 @@ export default function Footer() {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-yellow-400 text-black px-6 py-1 font-semibold rounded-md hover:bg-yellow-300 transition mb-6 w-fit"
+              className="group flex items-center gap-2 bg-amber-400 px-3 py-1.5 rounded-full text-[11px] font-bold tracking-widest text-black hover:bg-black hover:text-white transition-all duration-300"
             >
-              LET'S TALK
+              LET'S TALK <span className="text-lg leading-none group-hover:translate-x-1 transition-transform">→</span>
+          
             </motion.button>
              </a>
 
@@ -100,8 +102,9 @@ export default function Footer() {
           </p>
 
           <div className="flex gap-6 mt-3 md:mt-0">
-            <p className="hover:text-yellow-400 cursor-pointer transition">Terms & Conditions</p>
-            <p className="hover:text-yellow-400 cursor-pointer transition">Privacy Policy</p>
+            <Link to="/terms">
+            <p className="hover:text-yellow-400 cursor-pointer transition">Terms & Conditions</p></Link>
+             <Link to="/privacypolicy"><p className="hover:text-yellow-400 cursor-pointer transition">Privacy Policy</p></Link>
           </div>
         </motion.div>
 

@@ -60,7 +60,7 @@ export default function Hero() {
           className="font-bold leading-tight text-3xl sm:text-3xl md:text-5xl lg:text-4xl"
         >
           <span className="text-yellow-400 relative inline-block">
-            Pixla Gold
+            PIXLA GOLD
 
             {/* Shine */}
             <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-0 hover:opacity-100 animate-[shine_2s_linear_infinite]"></span>
@@ -68,7 +68,7 @@ export default function Hero() {
 
           <br />
 
-          <span>Corporation</span>
+          <span>CORPORATION</span>
         </motion.h1>
 
         {/* Description */}
