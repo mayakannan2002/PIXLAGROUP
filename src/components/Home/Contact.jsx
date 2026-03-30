@@ -121,13 +121,20 @@ export default function ContactSection() {
                   className="w-full p-3 bg-transparent border border-gray-700 rounded-md" />
               </div>
 
-              <select name="enquiry" required
-                className="w-full p-3 bg-transparent border border-gray-700 rounded-md">
-                <option value="">Select Enquiry</option>
-                <option>General</option>
-                <option>Franchise</option>
-                <option>Investment</option>
-              </select>
+              {/* ENQUIRY */}
+              <div>
+                <label className="text-sm text-white">
+                  Enquiry Type *
+                </label>
+                <select className="w-full mt-2 p-3 bg-transparent text-black border border-gray-700 rounded-md focus:outline-none focus:border-yellow-400">
+                  <option>Select Your Enquiry Type</option>
+                  <option>General</option>
+                  <option>Franchise</option>
+                  <option>Investment</option>
+                   <option>Careers</option>
+                    
+                </select>
+              </div>
 
               <textarea name="message" rows="4" required placeholder="Message"
                 className="w-full p-3 bg-transparent border border-gray-700 rounded-md" />
