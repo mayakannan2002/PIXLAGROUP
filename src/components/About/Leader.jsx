@@ -48,10 +48,11 @@ const LandingPage = () => {
   ];
 
   return (
-    <div className="w-full font-sans antialiased">
+    <div className="w-full font-sans antialiased scroll-smooth">
       
       {/* --- SECTION 1: EXECUTIVE PROFILE (WHITE BG) --- */}
-      <section className="bg-white py-20 px-6 md:px-12 border-b border-gray-100">
+      {/* Added id="founder" for navigation */}
+      <section id="founder" className="bg-white py-20 px-6 md:px-12 border-b border-gray-100 scroll-mt-20">
         <div className="max-w-[1400px] mx-auto ">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
             
@@ -116,7 +117,8 @@ const LandingPage = () => {
       </section>
 
       {/* --- SECTION 2: LEADERSHIP TEAM (BLACK BG) --- */}
-      <section className="bg-black text-white py-20 px-6 md:px-12">
+      {/* Added id="leadership" for navigation */}
+      <section id="leadership" className="bg-black text-white py-20 px-6 md:px-12 scroll-mt-20">
         <div className="max-w-[1400px] mx-auto text-center">
           {/* Section Heading */}
           <h2 className="text-[#D4AF37] text-sm font-bold uppercase tracking-[0.4em] mb-8">
