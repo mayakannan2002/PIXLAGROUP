@@ -1,5 +1,5 @@
 import React from 'react'
-import DivisionHeader from './DivisionHeader'
+import DivisionHeader from './../Navbar'
 import Divisionhero from './Divisionhero'
 import OurDivisions from '../Home/Division'
 import EcoSystemSection from './Ecosystem'

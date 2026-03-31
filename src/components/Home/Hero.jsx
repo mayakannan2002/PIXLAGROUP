@@ -109,7 +109,7 @@ export default function Hero() {
               boxShadow: "0px 0px 20px rgba(255,255,255,0.4)",
             }}
             whileTap={{ scale: 0.95 }}
-            className="w-full sm:w-auto bg-white text-black px-6 py-2 rounded-md font-semibold"
+           className="w-full sm:w-auto bg-white text-black px-6 py-2 rounded-md font-semibold transition-colors hover:bg-yellow-300"
           >
             Investor Relations
           </motion.button></Link>

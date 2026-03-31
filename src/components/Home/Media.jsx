@@ -23,22 +23,31 @@ const fadeUp = {
   show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
 };
 
-// 🔥 News Data
+// 🔥 News Data with Updated Links
 const news = [
-  { img: G4, title: "New Gold Project Announcement", date: "Jan 2026" },
-  { img: G5, title: "Future Of Digital Gold Investment", date: "Feb 2026" },
-  { img: G6, title: "Community Development Initiative", date: "Mar 2026" },
+  { 
+    img: G4, 
+    title: "How Pixalive, India's own social media app, came into play", 
+    date: "Jan 2026",
+    link: "https://www.thehindu.com/sci-tech/technology/how-pixalive-indias-own-social-media-app-came-into-play/article25888719.ece"
+  },
+  { 
+    img: G5, 
+    title: "Tripalive.me Technology Launches Pixalive", 
+    date: "Feb 2026",
+    link: "https://www.prnewswire.com/in/news-releases/tripaliveme-technology-launches-pixalive---the-social-media-app-700113481.html"
+  },
+  { 
+    img: G6, 
+    title: "Pixalive: India’s Homegrown Application", 
+    date: "Mar 2026",
+    link: "https://www.businessworld.in/article/pixalive-india%E2%80%99s-homegrown-application-308008"
+  },
 ];
 
 const gallery = [G7, G8, G9, G10];
 
 export default function MediaNewsSection() {
-  // 🔥 Function to trigger a REAL browser refresh to the home page
-  const handleHardRefresh = (e) => {
-    e.preventDefault();
-    window.location.href = "/"; 
-  };
-
   return (
     <section id="news" className="bg-black text-white py-20 overflow-hidden">
       <motion.div
@@ -66,8 +75,9 @@ export default function MediaNewsSection() {
                 <p className="text-gray-400 text-xs mb-4">Official announcements and corporate updates</p>
               
                 <a 
-                  href="/" 
-                  onClick={handleHardRefresh} 
+                  href="https://www.youtube.com/watch?v=RuypjhNQ0MI" 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-yellow-400 text-black px-3 py-1 text-[10px] uppercase tracking-widest rounded w-fit font-bold hover:bg-yellow-300 transition-colors"
                 >
                   Read Press Release
@@ -88,8 +98,9 @@ export default function MediaNewsSection() {
                 <p className="text-gray-400 text-xs mb-4">Explore expert articles, insights, and updates from the world of gold and finance.</p>
               
                 <a 
-                  href="/" 
-                  onClick={handleHardRefresh} 
+                  href="https://www.youtube.com/watch?v=38tCJexsrX0" 
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="bg-yellow-400 text-black px-3 py-1 text-[10px] uppercase tracking-widest rounded w-fit font-bold hover:bg-yellow-300 transition-colors"
                 >
                   Read Blog
@@ -102,10 +113,11 @@ export default function MediaNewsSection() {
           <motion.div variants={fadeUp} className="grid grid-cols-2 border border-gray-700 h-[320px]">
             <div className="p-6 flex flex-col justify-center">
               <h3 className="font-semibold mb-2 text-sm">Events</h3>
-              <p className="text-gray-400 text-xs mb-4">Stay informed about our upcoming conferences, seminars, and community initiatives that drive innovation and social impact.</p>
+              <p className="text-gray-400 text-xs mb-4">Stay informed about our upcoming conferences, seminars, and community initiatives.</p>
               <a 
-                href="/" 
-                onClick={handleHardRefresh} 
+                href="https://www.youtube.com/watch?v=475dsu6ZfGo" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-yellow-400 text-black px-4 py-2 text-[10px] uppercase tracking-widest rounded w-fit font-bold hover:bg-yellow-300 transition-colors"
               >
                 View Events
@@ -132,7 +144,12 @@ export default function MediaNewsSection() {
                 </div>
                 <h4 className="text-sm font-semibold mb-1">{item.title}</h4>
                 <p className="text-gray-400 text-[10px] mb-2">{item.date}</p>
-                <a href="/" onClick={handleHardRefresh} className="text-yellow-400 text-[11px] font-bold uppercase tracking-widest hover:underline">
+                <a 
+                  href={item.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="text-yellow-400 text-[11px] font-bold uppercase tracking-widest hover:underline"
+                >
                   Explore More →
                 </a>
               </motion.div>
@@ -154,12 +171,14 @@ export default function MediaNewsSection() {
               </motion.div>
             ))}
           </div>
-          <button 
-            onClick={handleHardRefresh}
-            className="bg-yellow-400 text-black px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest hover:bg-white transition-all shadow-lg"
+          <a 
+            href="https://www.chennaionline.com/news/chennai-news/first-ever-indian-made-social-media-application-pixalive-announces-actress-pranitha-subhash-as-brand-ambassador/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-yellow-400 text-black px-8 py-3 rounded-full text-[11px] font-bold uppercase tracking-widest hover:bg-white transition-all shadow-lg"
           >
             View Gallery
-          </button>
+          </a>
         </motion.div>
       </motion.div>
     </section>

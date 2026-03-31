@@ -2,7 +2,7 @@ import React from 'react'
 import Esghero from './Esghero'
 import Treeplantation from './Treeplantation'
 import FinancialInclusion from './Financial'
-import DivisionHeader from '../Divisions/DivisionHeader'
+import DivisionHeader from './../Navbar'
 import Sustainability from './Sustainability'
 
 const Esgpage = () => {

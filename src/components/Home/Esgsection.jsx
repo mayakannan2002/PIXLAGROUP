@@ -147,27 +147,29 @@ const ESGSection = () => {
           ))}
         </motion.div>
 
-        {/* Action Buttons with Hover Pop */}
+        {/* Action Buttons: Centered on Mobile, Row on Desktop */}
         <motion.div 
           variants={itemVariants}
-          className="flex flex-col sm:flex-row gap-6 justify-center mt-12"
+          className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-12"
         >
-          <Link to="/esg">
-          <motion.button 
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="bg-yellow-500 text-black px-10 py-3 rounded-md font-bold hover:bg-yellow-400 transition flex items-center gap-2"
-          >
-            Learn More <span className="text-lg">→</span>
-          </motion.button></Link>
-           <a href="#contact" className="inline-block">
-          <motion.button 
-            whileHover={{ scale: 1.05, backgroundColor: "white", color: "black" }}
-            whileTap={{ scale: 0.95 }}
-            className="border border-gray-600 px-10 py-3 rounded-md font-bold transition"
-          >
-            Join Our Mission
-          </motion.button>
+          <Link to="/esg" className="w-full sm:w-auto">
+            <motion.button 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-full bg-yellow-500 text-black px-10 py-3 rounded-md font-bold hover:bg-yellow-400 transition flex items-center justify-center gap-2"
+            >
+              Learn More <span className="text-lg">→</span>
+            </motion.button>
+          </Link>
+          
+          <a href="#contact" className="w-full sm:w-auto">
+            <motion.button 
+              whileHover={{ scale: 1.05, backgroundColor: "white", color: "black" }}
+              whileTap={{ scale: 0.95 }}
+              className="w-full border border-gray-600 px-10 py-3 rounded-md font-bold transition flex justify-center items-center"
+            >
+              Join Our Mission
+            </motion.button>
           </a>
         </motion.div>
 

@@ -3,10 +3,18 @@ import { Link } from 'react-router-dom';
 import { Home, Phone, MessageCircle } from 'lucide-react';
 
 const FloatingActions = () => {
-  const phoneNumber = "8778584566";
+  // IMPORTANT: WhatsApp requires the country code without '+' or spaces.
+  // Assuming India (91), change this if your country code is different.
+  const countryCode = "91";
+  const rawNumber = "8778584566";
+  const fullPhoneNumber = `${countryCode}${rawNumber}`;
+
+  // Pre-filled message (optional)
+  const message = encodeURIComponent("Hello! I would like to inquire about your services.");
+  const whatsappLink = `https://wa.me/${fullPhoneNumber}?text=${message}`;
 
   return (
-    /* Reduced gap and bottom/right spacing for a tighter fit */
+    /* Floating Container */
     <div className="fixed bottom-6 right-4 md:bottom-8 md:right-6 z-50 flex flex-col gap-3">
       
       {/* Home Icon */}
@@ -15,13 +23,12 @@ const FloatingActions = () => {
         className="bg-yellow-500 border border-black/10 p-2.5 md:p-3 rounded-full text-black hover:scale-110 transition-all duration-300 shadow-lg active:scale-95"
         title="Go to Home"
       >
-        {/* Size 16 for mobile, 20 for desktop */}
         <Home className="w-4 h-4 md:w-5 md:h-5" />
       </Link>
 
       {/* WhatsApp Icon */}
       <a 
-        href={`https://wa.me/${phoneNumber}`} 
+        href={whatsappLink} 
         target="_blank" 
         rel="noopener noreferrer"
         className="bg-[#25D366] p-2.5 md:p-3 rounded-full text-white hover:scale-110 transition-transform duration-300 shadow-lg active:scale-95"
@@ -32,7 +39,7 @@ const FloatingActions = () => {
 
       {/* Call Icon */}
       <a 
-        href={`tel:${phoneNumber}`} 
+        href={`tel:+${fullPhoneNumber}`} 
         className="bg-yellow-500 p-2.5 md:p-3 rounded-full text-black hover:scale-110 transition-transform duration-300 shadow-lg active:scale-95"
         title="Call Us"
       >

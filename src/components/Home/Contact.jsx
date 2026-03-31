@@ -96,12 +96,12 @@ export default function ContactSection() {
 
                 <div className="flex items-center gap-3">
                   <FiPhone className="text-yellow-400" />
-                  Contact Our Team
+                  +91 87785 84566
                 </div>
 
                 <div className="flex items-center gap-3">
                   <FiMail className="text-yellow-400" />
-                  info@pixlagold.com
+                  pixlagroup@gmail.com
                 </div>
               </div>
             </div>

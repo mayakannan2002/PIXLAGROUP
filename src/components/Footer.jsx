@@ -85,7 +85,7 @@ export default function Footer() {
              </a>
 
             <div className="text-gray-400 text-sm leading-relaxed">
-              <p className="hover:text-yellow-400 transition cursor-pointer">pixlagoldcorp@gmail.com</p>
+              <p className="hover:text-yellow-400 transition cursor-pointer">pixlagroup@gmail.com</p>
               <p className="text-lg font-semibold text-white mt-1">+91 87785 84566</p>
             </div>
           </motion.div>
