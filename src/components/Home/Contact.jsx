@@ -200,8 +200,7 @@ export default function ContactSection() {
                 className="w-full bg-yellow-400 text-black py-3 rounded-md font-semibold"
               >
                 Submit Enquiry
-              </motion.button>
-
+              </button>
             </form>
           </motion.div>
         </div>
