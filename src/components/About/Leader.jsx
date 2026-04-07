@@ -1,49 +1,65 @@
 import React from 'react';
 import { Linkedin, Mail, Phone } from 'lucide-react';
 
+// Asset Imports
+import L1 from "./../../assets/Home/L1.png";
+import L2 from "./../../assets/Home/L2.png";
+import L3 from "./../../assets/Home/L3.png";    
+import L4 from "./../../assets/Home/L4.png";
+import L5 from "./../../assets/Home/L5.png";
+import L6 from "./../../assets/Home/L6.png";
+import L7 from "./../../assets/Home/L7.png";
+import L8 from "./../../assets/Home/L8.png";
+
 const LandingPage = () => {
   const teamMembers = [
     {
       name: "Rajasekar Sundaresan",
-      role: "Chief Executive Officer",
+      role: "Founder & CEO",  
       desc: "Leads company vision, strategy, and growth while driving innovation and business success.",
-      img: "/path-to-image1.jpg"
+      img: L1
     },
     {
-      name: "David Chen",
-      role: "Chief Technology Officer",
-      desc: "With 15+ years of engineering experience, David leads our core platform development.",
-      img: "/path-to-image2.jpg"
+      name: "Murali Sundaresan",
+      role: "Founder & Director",
+      desc: "Spearheading vision, strategy, and sustainable growth while ensuring operational excellence.",
+      img: L2
     },
     {
-      name: "Marcus Johnson",
-      role: "Head of Product",
-      desc: "Marcus is obsessed with user experience and aligns our product goals with customer needs.",
-      img: "/path-to-image3.jpg"
+      name: "Abhishek Jain",
+      role: "Director & Chief Compliance Officer",
+      desc: "Ensuring regulatory compliance, ethical governance, and effective risk management while supporting strategic leadership.",
+      img: L3
     },
     {
-      name: "Elena Rodriguez",
-      role: "Design Director",
-      desc: "Award-winning designer shaping our brand identity and user interface aesthetics.",
-      img: "/path-to-image4.jpg"
+      name: "Bharath Jain",
+      role: "Chief Financial Officer",
+      desc: "Managing the company's financial strategy, planning, and performance while ensuring sustainable growth and fiscal discipline.",
+      img: L4
     },
     {
-      name: "Priya Sharma",
-      role: "Head of Marketing",
-      desc: "Growth expert who scales our market presence and drives global campaigns.",
-      img: "/path-to-image5.jpg"
+      name: "Nithesh Jain",
+      role: "Director & Investor",
+      desc: "Providing strategic leadership and financial backing to drive sustainable growth and long-term success.",
+      img: L5
+    },
+    {
+      name: "Murugan",
+      role: "Lead Product Engineer",
+      desc: "Leading product development, ensuring quality engineering, and delivering scalable, user-focused solutions.",
+      img: L6
     },
     {
       name: "Mayakannan",
       role: "Senior Software Developer",
-      desc: "Develops efficient, secure software solutions and ensures smooth performance across web platforms.",
-      img: "/path-to-image6.jpg"
+      desc: "Designing, developing, and maintaining high-quality software solutions with a focus on performance and scalability.",
+      img: L7
     },
     {
       name: "Vijay Sekar",
       role: "Product Designer",
-      desc: "Designs intuitive, user-friendly websites aligned with business goals and user needs.",
-      img: "/path-to-image7.jpg"
+      desc: "Designing intuitive and user-centric experiences that enhance product usability and engagement.",
+      img: L8
     }
   ];
 
@@ -51,18 +67,19 @@ const LandingPage = () => {
     <div className="w-full font-sans antialiased scroll-smooth">
       
       {/* --- SECTION 1: EXECUTIVE PROFILE (WHITE BG) --- */}
-      {/* Added id="founder" for navigation */}
       <section id="founder" className="bg-white py-20 px-6 md:px-12 border-b border-gray-100 scroll-mt-20">
         <div className="max-w-[1400px] mx-auto ">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
             
-            {/* Profile Image */}
+            {/* CEO Profile Image */}
             <div className="w-full lg:w-[40%]">
-              <img
-                src="/path-to-ceo.jpg"
-                alt="Rajasekar Sundaresan"
-                className="w-full rounded-[40px] shadow-sm object-cover aspect-[4/5]"
-              />
+              <div className="w-full rounded-[40px] overflow-hidden shadow-sm aspect-[4/5] max-h-[650px] bg-gray-50">
+                <img
+                  src={L1} 
+                  alt="Rajasekar Sundaresan - Founder & CEO"
+                  className="w-full h-full object-cover object-top"
+                />
+              </div>
             </div>
 
             {/* Profile Content */}
@@ -117,8 +134,7 @@ const LandingPage = () => {
       </section>
 
       {/* --- SECTION 2: LEADERSHIP TEAM (BLACK BG) --- */}
-      {/* Added id="leadership" for navigation */}
-      <section id="leadership" className="bg-black text-white py-20 px-6 md:px-12 scroll-mt-20">
+      <section id="leadership" className="bg-black text-white py-24 px-6 md:px-12 scroll-mt-20">
         <div className="max-w-[1400px] mx-auto text-center">
           {/* Section Heading */}
           <h2 className="text-[#D4AF37] text-sm font-bold uppercase tracking-[0.4em] mb-8">
@@ -130,21 +146,24 @@ const LandingPage = () => {
           </p>
 
           {/* Team Grid */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-12 gap-y-20">
             {teamMembers.map((member, index) => (
-              <div key={index} className="flex flex-col items-center group">
-                <div className="mb-6 w-full max-w-[240px] lg:max-w-none">
+              <div key={index} className="flex flex-col items-center">
+                
+                {/* Image Wrapper Fix */}
+                <div className="mb-6 w-full max-w-[260px] lg:max-w-none aspect-square overflow-hidden rounded-2xl bg-zinc-900">
                   <img 
                     src={member.img} 
-                    alt={member.name} 
-                    className="w-full aspect-square object-cover rounded-2xl"
+                    alt={`${member.name} - ${member.role}`} 
+                    className="w-full h-full object-cover object-top"
                   />
                 </div>
+                
                 <h3 className="text-lg font-bold mb-1 tracking-wide">{member.name}</h3>
-                <p className="text-[#D4AF37] text-[11px] font-bold uppercase tracking-wider mb-4">
+                <p className="text-[#D4AF37] text-[11px] font-bold uppercase tracking-wider mb-4 h-8 flex items-center justify-center text-center">
                   {member.role}
                 </p>
-                <p className="text-gray-500 text-[13px] leading-snug px-2">
+                <p className="text-gray-500 text-[13px] leading-relaxed px-4">
                   {member.desc}
                 </p>
               </div>
@@ -157,4 +176,4 @@ const LandingPage = () => {
   );
 };
 
-export default LandingPage; 
+export default LandingPage;
