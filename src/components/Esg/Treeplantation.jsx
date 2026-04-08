@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 // Asset Paths
 import treeImg from "./../../assets/Home/tree-plantation.webp";
-import ruralImg from "./../../assets/Home/rural-upliftment.jpg";
+import ruralImg from "./../../assets/Home/rural-upliftment.png";
 
 const ESGSections = () => {
   const fadeInUp = {

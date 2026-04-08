@@ -3,6 +3,7 @@ import logo from "./../assets/Home/Footer logo.png";
 import { FaLinkedin, FaInstagram, FaFacebookF, FaTwitter, FaYoutube } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+
 const container = {
   hidden: {},
   show: {
@@ -73,16 +74,20 @@ export default function Footer() {
 
           {/* RIGHT: Contact & CTA */}
           <motion.div variants={fadeUp} className="md:text-right flex flex-col md:items-end">
-             <a href="/contact" className="inline-block" >
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="group flex items-center gap-2 bg-amber-400 px-3 py-1.5 rounded-full text-[11px] font-bold tracking-widest text-black hover:bg-black hover:text-white transition-all duration-300"
-            >
-              LET'S TALK <span className="text-lg leading-none group-hover:translate-x-1 transition-transform">→</span>
-          
-            </motion.button>
-             </a>
+             
+
+<Link to="/contact" className="inline-block">
+  <motion.button
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    className="group flex items-center gap-2 bg-amber-400 px-3 py-1.5 rounded-full text-[11px] font-bold tracking-widest text-black hover:bg-black hover:text-white transition-all duration-300"
+  >
+    LET'S TALK
+    <span className="text-lg leading-none group-hover:translate-x-1 transition-transform">
+      →
+    </span>
+  </motion.button>
+</Link>
 
             <div className="text-gray-400 text-sm leading-relaxed">
               <p className="hover:text-yellow-400 transition cursor-pointer">pixlagroup@gmail.com</p>

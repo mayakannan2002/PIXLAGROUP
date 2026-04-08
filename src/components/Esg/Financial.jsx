@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { Wallet, TrendingUp, UserRound, ShieldCheck, ArrowRight, Quote } from "lucide-react";
 
 // Asset Path
-import inclusionImg from "./../../assets/Home/financial-inclusion.jpg";
+import inclusionImg from "./../../assets/Home/financial-inclusion.png";
 
 const FinancialInclusion = () => {
   const fadeInUp = {

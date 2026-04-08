@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import logo from "./../assets/PIXLA LOGO.jpg";
 
@@ -17,36 +17,42 @@ const menuItems = [
 export default function Navbar() {
   const [mobile, setMobile] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   // ✅ PREVENT BACKGROUND SCROLL
   useEffect(() => {
-    if (mobile) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-
+    document.body.style.overflow = mobile ? "hidden" : "auto";
     return () => {
       document.body.style.overflow = "auto";
     };
   }, [mobile]);
 
+  // ✅ SCROLL FUNCTION (HOME PAGE)
   const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 80;
+      const y =
+        element.getBoundingClientRect().top +
+        window.pageYOffset -
+        offset;
+
+      window.scrollTo({
+        top: y,
+        behavior: "smooth",
+      });
+    }
+  };
+
+  // ✅ MAIN FIX FUNCTION
+  const handleNavigation = (id) => {
     setMobile(false);
 
-    setTimeout(() => {
-      const element = document.getElementById(id);
-      if (element) {
-        const offset = 80;
-        const y =
-          element.getBoundingClientRect().top + window.pageYOffset - offset;
-
-        window.scrollTo({
-          top: y,
-          behavior: "smooth",
-        });
-      }
-    }, 200);
+    if (location.pathname !== "/") {
+      navigate("/", { state: { scrollTo: id } });
+    } else {
+      scrollToSection(id);
+    }
   };
 
   return (
@@ -62,13 +68,9 @@ export default function Navbar() {
             className="h-10 w-10 object-cover rounded-full"
             alt="Pixla Gold"
           />
-          <motion.span
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="text-yellow-400 font-semibold tracking-widest text-lg"
-          >
+          <span className="text-yellow-400 font-semibold tracking-widest text-lg">
             PIXLA GOLD CORP
-          </motion.span>
+          </span>
         </Link>
 
         {/* DESKTOP MENU */}
@@ -77,7 +79,7 @@ export default function Navbar() {
             menu.id ? (
               <button
                 key={index}
-                onClick={() => scrollToSection(menu.id)}
+                onClick={() => handleNavigation(menu.id)}
                 className="text-gray-300 hover:text-yellow-400 transition-colors"
               >
                 {menu.title}
@@ -93,7 +95,6 @@ export default function Navbar() {
                 }`}
               >
                 {menu.title}
-
                 {location.pathname === menu.path && (
                   <motion.span
                     layoutId="underline"
@@ -125,43 +126,30 @@ export default function Navbar() {
             className="lg:hidden text-yellow-500 relative z-[110]"
           >
             <div className="w-6 h-5 flex flex-col justify-between">
-              <span
-                className={`w-full h-0.5 bg-white transition-all duration-300 ${
-                  mobile ? "rotate-45 translate-y-2" : ""
-                }`}
-              ></span>
-              <span
-                className={`w-full h-0.5 bg-white transition-all duration-300 ${
-                  mobile ? "opacity-0" : ""
-                }`}
-              ></span>
-              <span
-                className={`w-full h-0.5 bg-white transition-all duration-300 ${
-                  mobile ? "-rotate-45 -translate-y-2" : ""
-                }`}
-              ></span>
+              <span className={`w-full h-0.5 bg-white transition-all duration-300 ${mobile ? "rotate-45 translate-y-2" : ""}`} />
+              <span className={`w-full h-0.5 bg-white transition-all duration-300 ${mobile ? "opacity-0" : ""}`} />
+              <span className={`w-full h-0.5 bg-white transition-all duration-300 ${mobile ? "-rotate-45 -translate-y-2" : ""}`} />
             </div>
           </button>
         </div>
       </div>
 
-      {/* ✅ MOBILE MENU */}
+      {/* MOBILE MENU */}
       <AnimatePresence>
         {mobile && (
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            transition={{ duration: 0.3 }}
             className="fixed top-[72px] left-0 w-full h-[calc(100vh-72px)] bg-black border-t border-white/5 lg:hidden z-[90] overflow-y-auto"
           >
-            <div className="flex flex-col p-10 gap-8 items-start pb-20 min-h-full">
+            <div className="flex flex-col p-10 gap-8 items-start pb-20">
 
               {menuItems.map((menu, index) =>
                 menu.id ? (
                   <button
                     key={index}
-                    onClick={() => scrollToSection(menu.id)}
+                    onClick={() => handleNavigation(menu.id)}
                     className="text-gray-200 font-bold text-[11px] uppercase tracking-widest text-left hover:text-yellow-400 w-full"
                   >
                     {menu.title}

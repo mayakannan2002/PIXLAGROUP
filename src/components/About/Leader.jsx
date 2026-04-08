@@ -98,11 +98,35 @@ const LandingPage = () => {
               </p>
 
               {/* Social Icons */}
-              <div className="flex gap-5 mb-10 text-gray-400">
-                <a href="#" className="hover:text-[#D4AF37] transition-colors"><Linkedin size={20} /></a>
-                <a href="#" className="hover:text-[#D4AF37] transition-colors"><Mail size={20} /></a>
-                <a href="#" className="hover:text-[#D4AF37] transition-colors"><Phone size={20} /></a>
-              </div>
+            <div className="flex gap-5 mb-10 text-gray-400">
+  
+  {/* LinkedIn */}
+  <a 
+    href="https://www.linkedin.com/in/rajasekar-sundaresan" 
+    target="_blank" 
+    rel="noopener noreferrer"
+    className="hover:text-[#D4AF37] transition-colors"
+  >
+    <Linkedin size={20} />
+  </a>
+
+  {/* Email */}
+  <a 
+    href="mailto:pixlagroup@gmail.com"
+    className="hover:text-[#D4AF37] transition-colors"
+  >
+    <Mail size={20} />
+  </a>
+
+  {/* Phone */}
+  <a 
+    href="tel:+918778584566"
+    className="hover:text-[#D4AF37] transition-colors"
+  >
+    <Phone size={20} />
+  </a>
+
+</div>
 
               <div className="space-y-6 text-[#4A5568] leading-relaxed text-[17px]">
                 <p>

@@ -4,7 +4,7 @@ import { Heart, TreePine, Banknote, Users, ArrowRight, Quote } from "lucide-reac
 import { Link } from 'react-router-dom';
 
 // Replace with your actual image assets
-import foundationImg from "./../../assets/Home/foundation-community.jpg";
+import foundationImg from "./../../assets/Home/foundation-community.png";
 
 const ESGFoundation = () => {
   const fadeInUp = {
