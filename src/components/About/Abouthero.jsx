@@ -10,13 +10,14 @@ const AboutSection1 = () => {
   };
 
   const stats = [
-    { val: "5M+", label: "Downloads" },
-    { val: "₹10 Cr", label: "Annual Revenue" },
-    { val: "100K+", label: "Subscribers" },
-    { val: "100+", label: "Gold Network Shops" },
-    { val: "100+", label: "Pincode Franchises" },
-    { val: "4", label: "State Franchises" },
-    { val: "$5M", label: "Total Funding" },
+    { val: "500k+", label: "Downloads" },
+    { val: "Pre Revenue", label: "Annual Revenue" },
+    { val: "100+", label: "Jewellery Partners" },
+    { val: "200+", label: "Pincode wise franchise" },
+     { val: "2", label: "State Franchises" },
+    { val: "6Cr", label: "Total Funding Raised" },
+   
+    { val: "60Cr", label: "Current Valuvation" },
   ];
 
   return (
@@ -43,7 +44,7 @@ const AboutSection1 = () => {
            </div>
            <div className="md:col-span-5 text-gray-400 text-sm leading-relaxed pr-4">
               <p className="mb-4">
-                We transform gold from a traditional commodity into a modern, transparent, and inclusive financial asset. Pixla Gold Corporation creates a trusted platform for gold access with confidence.
+                We transform gold from a traditional commodity into a modern, transparent, and inclusive financial asset. Pixla Gold Corp creates a trusted platform for gold access with confidence.
               </p>
               <p>
                 We are committed to sustainability and rural empowerment. Through Pixla Gold Foundation, we link wealth creation with social responsibility.

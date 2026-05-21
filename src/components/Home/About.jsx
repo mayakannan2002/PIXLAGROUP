@@ -63,7 +63,7 @@ export default function AboutHero() {
           variants={fadeUp}
           className="text-gray-400 max-w-3xl mx-auto text-sm mb-16"
         >
-          Pixla Gold Corporation Pvt Ltd is building India's first fully
+          Pixla Gold Corp Pvt Ltd is building India's first fully
           integrated gold ecosystem — spanning exploration, mining,
           refining, manufacturing, bullion trading, finance, retail,
           and ESG impact.

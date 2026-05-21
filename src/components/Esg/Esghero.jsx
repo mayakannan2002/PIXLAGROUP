@@ -51,7 +51,7 @@ const ESGFoundation = () => {
             Creating Wealth That Makes a Difference
           </h2>
           <p className="text-gray-400 text-sm md:text-base leading-relaxed mb-10 max-w-2xl mx-auto">
-            Pixla Gold Corporation is committed to ESG initiatives, ensuring our ecosystem benefits communities, the environment, and society. Through the Pixla Gold Foundation, we drive sustainable growth while protecting the planet.
+            Pixla Gold Corp is committed to ESG initiatives, ensuring our ecosystem benefits communities, the environment, and society. Through the Pixla Gold Foundation, we drive sustainable growth while protecting the planet.
           </p>
           
           <h3 className="text-yellow-400 font-bold text-base md:text-lg mb-10 tracking-widest uppercase">

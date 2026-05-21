@@ -14,8 +14,8 @@ import { Link } from "react-router-dom";
 const divisions = [
   {
     title: "Pixla Gold Network",
-    subtitle: "India’s First Social Gold Network",
-    desc: "Customer facing platform connecting individuals, businesses, and communities with digital gold, retail stores, and franchise network.",
+    subtitle: "India’s Creator-Powered Digital Gold Network",
+    desc: "Connecting social engagement, digital gold savings, creators, jewellery partners, and franchise entrepreneurs into one powerful ecosystem.",
     icon: <FaNetworkWired />,
   },
   {

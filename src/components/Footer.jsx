@@ -44,7 +44,7 @@ export default function Footer() {
             </h2>
 
             <p className="text-gray-400 text-sm max-w-xs">
-              Pixla Gold Corporation is building India's first fully integrated gold ecosystem, combining tradition with digital innovation.
+              Pixla Gold Corp is building India's first fully integrated gold ecosystem, combining tradition with digital innovation.
             </p>
           </motion.div>
 
@@ -53,7 +53,7 @@ export default function Footer() {
             <p className="text-gray-400 mb-6 uppercase tracking-[0.2em] text-xs font-bold">Connect With Us</p>
             <div className="flex gap-4 mb-6">
               {[
-                { Icon: FaLinkedin, link: "https://www.linkedin.com/company/pixla-gold-corporation/posts/?feedView=all" },
+                { Icon: FaLinkedin, link: "https://www.linkedin.com/company/pixla-gold-Corp/posts/?feedView=all" },
                 { Icon: FaInstagram, link: "https://www.instagram.com/pixla_official/" },
                 // { Icon: FaFacebookF, link: "#" },
                 // { Icon: FaTwitter, link: "#" },
@@ -103,7 +103,7 @@ export default function Footer() {
           className="border-t border-gray-800 pt-6 flex flex-col md:flex-row justify-between items-center text-gray-600 text-xs"
         >
           <p>
-            © 2026 Pixla Gold Corporation Pvt Ltd. All Rights Reserved.
+            © 2026 Pixla Gold Corp Pvt Ltd. All Rights Reserved.
           </p>
 
           <div className="flex gap-6 mt-3 md:mt-0">

@@ -154,7 +154,7 @@ const InvestorPage = () => {
             whileInView={{ opacity: 1, x: 0 }}
             className="p-8 text-gray-400 text-sm leading-relaxed"
           >
-            Pixla Gold Corporation presents a comprehensive overview for investors, showcasing our position as India’s first social gold network.
+            Pixla Gold Corp presents a comprehensive overview for investors, showcasing our position as India’s first social gold network.
           </motion.div>
         </div>
 
@@ -184,7 +184,7 @@ const InvestorPage = () => {
         <div className="grid md:grid-cols-12 gap-8 items-start mb-8">
           <div className="md:col-span-5 pr-8">
             <p className="text-gray-400 leading-relaxed mb-8">
-              Pixla Gold Corporation provides key financial metrics to help investors evaluate the company's growth and stability.
+              Pixla Gold Corp provides key financial metrics to help investors evaluate the company's growth and stability.
             </p>
             <h3 className="text-yellow-500 font-bold text-2xl italic leading-tight">
               "Strong Numbers, Transparent Growth."

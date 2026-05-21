@@ -68,7 +68,7 @@ export default function Hero() {
 
           <br />
 
-          <span>CORPORATION</span>
+          <span>CORP</span>
         </motion.h1>
 
         {/* Description */}

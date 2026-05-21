@@ -24,7 +24,7 @@ const HeroSection = () => {
           </h1>
 
           <p className="text-gray-400 text-md md:text-lg max-w-lg leading-relaxed mb-12">
-            Pixla Gold Corporation has built a complete, integrated gold 
+            Pixla Gold Corp has built a complete, integrated gold 
             ecosystem, connecting every stage of the gold value chain to 
             deliver quality, trust, and value to customers, businesses, and investors.
           </p>

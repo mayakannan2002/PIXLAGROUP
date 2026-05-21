@@ -59,7 +59,7 @@ const ProductsServices = () => {
             transition={{ delay: 0.4, duration: 1 }}
             className="text-gray-400 text-lg max-w-3xl mx-auto leading-relaxed"
           >
-            Pixla Gold Corporation offers a complete suite of gold products and services, 
+            Pixla Gold Corp offers a complete suite of gold products and services, 
             combining traditional value with modern innovation.
           </motion.p>
         </motion.div>

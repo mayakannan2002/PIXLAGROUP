@@ -131,7 +131,7 @@ const LandingPage = () => {
               <div className="space-y-6 text-[#4A5568] leading-relaxed text-[17px]">
                 <p>
                   Rajasekar Sundaresan is a visionary entrepreneur with deep expertise in 
-                  technology, finance, and business strategy. He founded Pixla Gold Corporation 
+                  technology, finance, and business strategy. He founded Pixla Gold Corp 
                   with the mission of creating India's first fully integrated gold ecosystem.
                 </p>
                 <p>
@@ -165,7 +165,7 @@ const LandingPage = () => {
             Leadership Team
           </h2>
           <p className="max-w-3xl mx-auto text-gray-400 text-[15px] leading-relaxed mb-20">
-            Pixla Gold Corporation is led by a team of experienced professionals with expertise in gold 
+            Pixla Gold Corp is led by a team of experienced professionals with expertise in gold 
             trading, finance, technology, operations, and ESG initiatives:
           </p>
 

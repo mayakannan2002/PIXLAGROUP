@@ -49,7 +49,7 @@ const Sustainability = () => {
             Responsible Gold for a Better Future
           </p>
           <p className="text-gray-400 text-lg max-w-4xl mx-auto leading-relaxed">
-            Pixla Gold Corporation is committed to sustainable practices across the entire gold ecosystem, 
+            Pixla Gold Corp is committed to sustainable practices across the entire gold ecosystem, 
             from mining and refining to manufacturing, retail, and ESG initiatives. We aim to minimize 
             environmental impact, promote ethical sourcing, and create long-term value.
           </p>

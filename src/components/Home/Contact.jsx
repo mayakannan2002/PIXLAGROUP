@@ -91,7 +91,7 @@ export default function ContactSection() {
               <div className="space-y-4 text-gray-300 text-sm">
                 <div className="flex items-center gap-3">
                   <FiMapPin className="text-yellow-400" />
-                  Pixla Gold Corporation Pvt Ltd, India
+                  Pixla Gold Corp Pvt Ltd, India
                 </div>
 
                 <div className="flex items-center gap-3">
